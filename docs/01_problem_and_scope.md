@@ -10,13 +10,13 @@ But traffic and air quality change hour by hour. 08:00 can be heavily congested 
 
 **Could a charge that changes with forecast conditions, and is published before the journey, reduce congestion and pollution while keeping the cost to drivers reasonable?**
 
-To publish a price in advance, you first need to know what the next few hours will look like. So the first thing this project tests is whether congestion, NO₂ and PM₂.₅ can be forecast 1, 3 and 6 hours ahead well enough to set a price. The second is whether prices chosen from those forecasts do better than a flat daily charge.
+To publish a price in advance, you first need to know what the next few hours will look like. So the first thing this project tests is if congestion, NO₂ and PM₂.₅ can be forecast 1, 3 and 6 hours ahead well enough to set a price. The second is whether prices chosen from those forecasts do better than a flat daily charge.
 
 ## Who the output is for
 
 - Transport and policy analysts who want to know whether forecast-based pricing is worth studying further.
 - Data science and machine learning reviewers, who will judge the method and how honestly it is reported.
-- Researchers who may take the research agenda forward.
+- Researchers who may take the research further.
 
 It is not written for TfL to adopt. This is a simulation and decision-support study, not a proposal for implementation.
 
