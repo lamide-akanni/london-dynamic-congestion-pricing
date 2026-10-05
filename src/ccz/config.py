@@ -1,0 +1,69 @@
+"""
+Project settings.
+Every date, path, name and number used in the project file lives here.
+"""
+
+from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+# This file is at <root>/src/ccz/config.py, so the project root is two
+# folders up from the folder this file sits in.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+DATA_RAW = PROJECT_ROOT / "data" / "raw"
+DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
+MODELS_DIR = PROJECT_ROOT / "models"
+LOGS_DIR = PROJECT_ROOT / "logs"
+REPORTS_DIR = PROJECT_ROOT / "reports"
+FIGURES_DIR = REPORTS_DIR / "figures"
+TABLES_DIR = REPORTS_DIR / "tables"
+
+# The traffic file you place in data/raw by hand.
+TOMTOM_FILE = DATA_RAW / "tomtom_london_2025H1.csv"
+
+# ---------------------------------------------------------------------------
+# Time window and splits
+# ---------------------------------------------------------------------------
+TIMEZONE = "Europe/London"
+DATA_START = "2025-01-01"
+DATA_END = "2025-06-30"
+
+# Training months are January to April. May and June are the hold-out test.
+TRAIN_END = "2025-04-30 23:00"
+TEST_START = "2025-05-01 00:00"
+
+# Rolling-origin check: each month below is predicted by a model trained
+# only on the months before it.
+ROLLING_TEST_MONTHS = ["2025-03", "2025-04", "2025-05", "2025-06"]
+
+# ---------------------------------------------------------------------------
+# Forecasting
+# ---------------------------------------------------------------------------
+TARGETS = ["congestion", "no2", "pm25"]
+HORIZONS = [1, 3, 6]               # hours ahead
+CONGESTION_ALARM_LEVEL = 60        # "high congestion" means above this (S3)
+RANDOM_SEED = 42
+
+# ---------------------------------------------------------------------------
+# Pricing simulation
+# ---------------------------------------------------------------------------
+CURRENT_CHARGE = 15.0              # flat daily charge during the data window (to verify)
+PRICE_FLOOR = 10.0                 # lowest price the optimiser may choose
+PRICE_CEILING = 18.0               # highest price the optimiser may choose
+DAILY_CAP = 18.0                   # most one vehicle pays in a day
+
+# Assumed driver response. These are scenarios, not measured values.
+ELASTICITIES = [-0.1, -0.3, -0.5]
+DEFAULT_ELASTICITY = -0.3
+
+# Prices are published at these hours and cover the next block of hours.
+PRICING_DECISION_HOURS = [7, 13]
+HOURS_PER_DECISION = 6
+
+# Five optimiser runs with different seeds, to measure the spread (S5, S9).
+OPTIMISER_SEEDS = [1, 2, 3, 4, 5]
+
+# Stress test: forecast error multiplied by these amounts (S7).
+FORECAST_ERROR_MULTIPLIERS = [0.0, 0.5, 1.0, 1.5, 2.0]
