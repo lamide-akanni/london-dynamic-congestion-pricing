@@ -35,6 +35,18 @@ DATA_END = "2025-06-30"
 CENTRAL_REGION = "Westminster"
 CHECK_REGION = "City of London"
 
+# Air quality and weather sources ( times are UTC).
+AIR_SITES = ["WM6", "CE2", "MY1", "CE3", "BL0"]
+AIR_SPECIES = ["NO2", "PM25"]
+WEATHER_LATITUDE = 51.51
+WEATHER_LONGITUDE = -0.13
+WEATHER_VARIABLES = [
+    "temperature_2m", "relative_humidity_2m", "precipitation",
+    "surface_pressure", "wind_speed_10m", "wind_direction_10m", "cloud_cover",
+]
+LAQN_FILE = DATA_RAW / "laqn_2025H1.csv"
+WEATHER_FILE = DATA_RAW / "weather_2025H1.csv"
+
 # Training months are January to April. May and June are the hold-out test.
 TRAIN_END = "2025-04-30 23:00"
 TEST_START = "2025-05-01 00:00"
