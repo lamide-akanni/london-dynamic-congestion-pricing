@@ -26,7 +26,7 @@ API at https://api.erg.ic.ac.uk/
 Downloaded: 06/10/2026, by scripts/00_download_air_weather.py
 Period covered: 01 January 2025 to 30 June 2025
 Time interval and units: Hourly NO2 and PM2.5 for sites WM6, CE2, MY1, CE3 and BL0. Time is UTC. 
-Units to confirm from the source. 29,294 rows. MY1 returned no PM2.5 values.
+Units to confirm from the source. 30,344 rows. MY1 returned no PM2.5 values.
 
 FILE 3: weather_2025H1.csv
 Source: Open-Meteo historical weather API, https://archive-api.open-meteo.com/
