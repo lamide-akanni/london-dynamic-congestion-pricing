@@ -13,8 +13,10 @@ Where it came from: https://docs.tomtom.com/
 Date downloaded: 04/10/2026
 Terms of use: TomTom provides the city datasets as free downloadable CSV data.  
 Period covered: 01 January 2025 – 30 June 2025 (2025 H1)
-Time interval and units: Hourly observations. The `Time` field is recorded as 
-an ISO 8601 date-time string (`YYYY-MM-DDTHH:MM`),
+Time interval and units or Granularity: Hourly observations.(`YYYY-MM-DDTHH:MM`), 
+Hourly rows for 14 London boroughs.
+Time is London local time with no time zone marker. 
+One hour is absent on 30 March 2025 where the clocks went forward
 with traffic measurements reported for each area at hourly intervals.
 
 FILE 2: air quality (NO2 and PM2.5), London Air Quality Network
