@@ -30,6 +30,11 @@ TIMEZONE = "Europe/London"
 DATA_START = "2025-01-01"
 DATA_END = "2025-06-30"
 
+# Which TomTom areas stand in for the Congestion Charging Zone?
+# And both are whole boroughs, so they are approximations of the zone.
+CENTRAL_REGION = "Westminster"
+CHECK_REGION = "City of London"
+
 # Training months are January to April. May and June are the hold-out test.
 TRAIN_END = "2025-04-30 23:00"
 TEST_START = "2025-05-01 00:00"
