@@ -1,5 +1,7 @@
-"""Download hourly air quality (LAQN) and weather (Open-Meteo).
-Writes two files into data/raw, 
+"""Brick 13: download hourly air quality (LAQN) and weather (Open-Meteo).
+
+Run on your own computer, it needs internet. It writes two files into
+data/raw, which Git ignores. All times in these files are UTC.
 """
 
 import time
@@ -35,14 +37,14 @@ def get(url, params=None):
 # ---- Air quality: one request per site, species and month ----
 rows = []
 month_starts = pd.date_range(config.DATA_START, config.DATA_END, freq="MS")
-data_end = pd.Timestamp(config.DATA_END)
 
 for site in config.AIR_SITES:
     for species in config.AIR_SPECIES:
         count = 0
         for month in month_starts:
             start = month.strftime("%Y-%m-%d")
-            end = min(month + pd.offsets.MonthEnd(0), data_end).strftime("%Y-%m-%d")
+            # LAQN does not include the end date, so ask up to the first day of the next month.
+            end = (month + pd.offsets.MonthBegin(1)).strftime("%Y-%m-%d")
             response = get(LAQN_URL.format(site=site, species=species, start=start, end=end))
             if response is None:
                 continue
@@ -60,6 +62,7 @@ for site in config.AIR_SITES:
         print(f"{site} {species}: {count} hourly values")
 
 air = pd.DataFrame(rows, columns=["site", "species", "time_utc", "value"])
+air = air.drop_duplicates(subset=["site", "species", "time_utc"])
 air.to_csv(config.LAQN_FILE, index=False)
 print(f"\nAir quality rows saved: {len(air)} -> {config.LAQN_FILE.name}")
 
