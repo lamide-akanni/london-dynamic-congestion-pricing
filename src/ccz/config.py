@@ -47,6 +47,10 @@ WEATHER_VARIABLES = [
 LAQN_FILE = DATA_RAW / "laqn_2025H1.csv"
 WEATHER_FILE = DATA_RAW / "weather_2025H1.csv"
 
+MASTER_START = "2025-01-01 00:00"  # first hour of the master calendar, UTC
+MASTER_END = "2025-06-30 22:00"  # last hour, UTC (TomTom ends at 23:00 London time = 22:00 UTC)
+TOMTOM_CLEAN_FILE = DATA_PROCESSED / "tomtom_clean.csv"
+
 # Training months are January to April. May and June are the hold-out test.
 TRAIN_END = "2025-04-30 23:00"
 TEST_START = "2025-05-01 00:00"
