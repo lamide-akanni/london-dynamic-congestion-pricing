@@ -51,7 +51,15 @@ MASTER_START = "2025-01-01 00:00"  # first hour of the master calendar, UTC
 MASTER_END = "2025-06-30 22:00"  # last hour, UTC (TomTom ends at 23:00 London time = 22:00 UTC)
 TOMTOM_CLEAN_FILE = DATA_PROCESSED / "tomtom_clean.csv"
 
+# Air quality series used as model inputs (rule R6 in docs/05_cleaning_rules.md).
+# CE3 NO2 and all of BL0 are downloaded but not used.
+AIR_SERIES = [("WM6", "NO2"), ("WM6", "PM25"), ("CE2", "NO2"), ("CE2", "PM25"), ("MY1", "NO2")]
+MAX_FILL_HOURS = 2  # gaps up to this many hours in a row are filled by a straight line (rule R8)
+AIR_CLEAN_FILE = DATA_PROCESSED / "air_clean.csv"
+AIR_CLEAN_LOG_FILE = DATA_PROCESSED / "air_clean_log.csv"
+
 # Training months are January to April. May and June are the hold-out test.
+# Both split times are read as UTC, the same clock as the master calendar.
 TRAIN_END = "2025-04-30 23:00"
 TEST_START = "2025-05-01 00:00"
 
