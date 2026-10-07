@@ -58,6 +58,10 @@ MAX_FILL_HOURS = 2  # gaps up to this many hours in a row are filled by a straig
 AIR_CLEAN_FILE = DATA_PROCESSED / "air_clean.csv"
 AIR_CLEAN_LOG_FILE = DATA_PROCESSED / "air_clean_log.csv"
 
+# The joined hourly table and the record of the run that made it (scripts/03_build_hourly_table.py).
+HOURLY_FILE = DATA_PROCESSED / "hourly_clean.csv"
+MANIFEST_FILE = DATA_PROCESSED / "run_manifest.json"
+
 # Training months are January to April. May and June are the hold-out test.
 # Both split times are read as UTC, the same clock as the master calendar.
 TRAIN_END = "2025-04-30 23:00"
