@@ -89,6 +89,15 @@ TARGET_COLUMNS = {
     "pm25": "wm6_pm25",
 }
 
+# How far back the model may look (hours before the row's own hour).
+LAG_HOURS = [1, 2, 3, 6, 12, 24]
+
+# England bank holidays, January to June 2025 (check against gov.uk/bank-holidays).
+BANK_HOLIDAYS = ["2025-01-01", "2025-04-18", "2025-04-21", "2025-05-05", "2025-05-26"]
+
+# Weather columns the models may use. Same list as WEATHER_VARIABLES above.
+WEATHER_INPUTS = WEATHER_VARIABLES
+
 # ---------------------------------------------------------------------------
 # Pricing simulation
 # ---------------------------------------------------------------------------
