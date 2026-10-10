@@ -55,3 +55,11 @@ print(f"Hours above 100: Westminster {(central > 100).sum()}, City of London {(c
 section("6. Do the two main air sites agree with each other? (training months)")
 print(f"NO2   WM6 vs CE2: {train['wm6_no2'].corr(train['ce2_no2']):.2f}")
 print(f"PM2.5 WM6 vs CE2: {train['wm6_pm25'].corr(train['ce2_pm25']):.2f}")
+
+section("7. Does congestion now go with pollution later? (training months)")
+for pollutant in ["wm6_no2", "wm6_pm25"]:
+    print(pollutant)
+    for lag in [0, 1, 3, 6]:
+        later = train[pollutant].shift(-lag)
+        r = central.corr(later)
+        print(f"  congestion now vs {lag} h later: {r:.2f}")
