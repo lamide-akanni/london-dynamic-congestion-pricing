@@ -79,6 +79,16 @@ HORIZONS = [1, 3, 6]               # hours ahead
 CONGESTION_ALARM_LEVEL = 60        # "high congestion" means above this (S3)
 RANDOM_SEED = 42
 
+# Which column of hourly_clean.csv each target is read from.
+# Decided 10/10/2026, before any model was trained: WM6 is the main air
+# site (best coverage, closest to the road). CE2 is kept as a later check.
+
+TARGET_COLUMNS = {
+    "congestion": "congestion_central",
+    "no2": "wm6_no2",
+    "pm25": "wm6_pm25",
+}
+
 # ---------------------------------------------------------------------------
 # Pricing simulation
 # ---------------------------------------------------------------------------
