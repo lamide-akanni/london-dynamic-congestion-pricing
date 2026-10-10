@@ -1,4 +1,4 @@
-# 04. Data dictionary: air quality and weather files
+# 04. Data dictionary: Air Quality and Weather Files
 
 ## Air quality: `data/raw/laqn_2025H1.csv`
 
@@ -48,15 +48,6 @@ Data manager for all five: King's College London. Kerbside means the instrument 
 - Download correction: the first download missed the last day of every month, because the LAQN end date is not included. The script now asks up to the first day of the next month. Rows went from 29,294 to 30,344.
 - WM6 closed on 1 April 2026. This does not affect January to June 2025, but a live or longer version of the work could not use it.
 
-### Where the long gaps sit (found in the cleaned hourly table, 7 October 2026)
-
-All times are UTC. A gap here means hours with no reading after the 2-hour fill rule was applied.
-
-- WM6 NO2 and PM25: both are empty from 1 April 03:00 to 2 April 15:00 (37 hours), so the two instruments were out together. WM6 PM25 also has 26 June 21:00 to 27 June 15:00 (19 hours).
-- CE2 NO2: the first 13 hours of 1 January are empty (00:00 to 12:00). There are also 3 hours on 3 March.
-- CE2 PM25: 27 April 08:00 to 1 May 23:00 (112 hours). This gap crosses the training and test split: 88 hours fall in April (training) and 24 hours on 1 May (test). Another gap runs from 14 January 22:00 to 15 January 22:00 (25 hours).
-- MY1 NO2: 45 separate empty stretches, 44 of them 3 hours or longer. The longest is 313 hours, 26 February 00:00 to 11 March 00:00. Another is 70 hours, 7 to 10 February.
-
 ## Weather: `data/raw/weather_2025H1.csv`
 
 Source: Open-Meteo historical weather API, one point in central London (latitude 51.51, longitude -0.13). Downloaded 6 October 2026 with the same script.
@@ -92,6 +83,7 @@ Source: Open-Meteo historical weather API, one point in central London (latitude
 
 - Whether LAQN time marks the start or the end of the hour (this affects how air quality lines up with TomTom by one hour).
 - Units for NO2 and PM25 and the weather columns, from the source documentation.
+- Where the long gaps sit in time (CE2 PM25 112 hours, WM6 37 hours).
 - Whether the zero readings at WM6 PM25 and BL0 NO2 are real or a floor.
 - Spikes, before anything is called an outlier.
 - Whether Marylebone Road lies on the zone boundary (outside the charge) on TfL's map.
