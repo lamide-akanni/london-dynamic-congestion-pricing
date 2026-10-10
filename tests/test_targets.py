@@ -84,3 +84,10 @@ def test_inputs_at_hour_t_do_not_depend_on_later_hours():
     a = features.build_inputs(table)[features.input_columns()]
     b = features.build_inputs(changed)[features.input_columns()]
     pd.testing.assert_frame_equal(a.iloc[:cut + 1], b.iloc[:cut + 1])
+
+def test_test_rows_start_at_the_test_start_and_have_answers():
+    table = features.add_targets(make_table(48))
+    rows = features.test_rows(table, "no2", 3)
+    assert rows["time_utc"].min() >= pd.Timestamp(config.TEST_START, tz="UTC")
+    assert rows["y_no2_3h"].notna().all()
+    assert len(rows) == 33

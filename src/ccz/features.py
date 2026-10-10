@@ -50,3 +50,8 @@ def input_columns():
     lags = [f"{c}_lag{k}h" for c in now for k in config.LAG_HOURS]
     clock = ["hour_sin", "hour_cos", "is_weekend", "is_bank_holiday"]
     return now + lags + clock + config.WEATHER_INPUTS
+
+def test_rows(table, name, h):
+    test_start = pd.Timestamp(config.TEST_START, tz="UTC")
+    rows = table.loc[table["time_utc"] >= test_start]
+    return rows[rows[f"y_{name}_{h}h"].notna()]
