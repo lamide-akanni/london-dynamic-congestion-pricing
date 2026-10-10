@@ -42,3 +42,16 @@ section("4. Share of hours at or above each level (training months)")
 for level in [50, 60, 70]:
     print(f"Westminster >= {level}: {100 * (central >= level).mean():.1f}% of hours"
           f"   |   City of London >= {level}: {100 * (city >= level).mean():.1f}%")
+
+    section("5. Does City of London follow Westminster? (training months)")
+print(f"Correlation of the two hourly series: {central.corr(city):.2f}")
+
+daily_shape = train.groupby("hour_london")[["congestion_central", "congestion_check"]].mean()
+print(f"Correlation of their average daily shapes: "
+      f"{daily_shape['congestion_central'].corr(daily_shape['congestion_check']):.2f}")
+
+print(f"Hours above 100: Westminster {(central > 100).sum()}, City of London {(city > 100).sum()}")
+
+section("6. Do the two main air sites agree with each other? (training months)")
+print(f"NO2   WM6 vs CE2: {train['wm6_no2'].corr(train['ce2_no2']):.2f}")
+print(f"PM2.5 WM6 vs CE2: {train['wm6_pm25'].corr(train['ce2_pm25']):.2f}")
