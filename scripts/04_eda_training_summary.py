@@ -63,3 +63,7 @@ for pollutant in ["wm6_no2", "wm6_pm25"]:
         later = train[pollutant].shift(-lag)
         r = central.corr(later)
         print(f"  congestion now vs {lag} h later: {r:.2f}")
+
+section("8. Average day: congestion and pollution by hour (training months)")
+by_hour = train.groupby("hour_london")[["congestion_central", "wm6_no2", "wm6_pm25"]].mean().round(1)
+print(by_hour)
