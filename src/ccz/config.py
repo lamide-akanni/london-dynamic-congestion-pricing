@@ -70,6 +70,9 @@ TEST_START = "2025-05-01 00:00"
 # Rolling-origin check: each month below is predicted by a model trained
 # only on the months before it.
 ROLLING_TEST_MONTHS = ["2025-03", "2025-04", "2025-05", "2025-06"]
+# Practice exams inside the training months. Each month is predicted by a model
+# trained only on earlier months. May and June are never used here.
+VALIDATION_FOLDS = [("2025-03", "2025-02-28 23:00"), ("2025-04", "2025-03-31 23:00")]
 
 # ---------------------------------------------------------------------------
 # Forecasting

@@ -91,3 +91,10 @@ def test_test_rows_start_at_the_test_start_and_have_answers():
     assert rows["time_utc"].min() >= pd.Timestamp(config.TEST_START, tz="UTC")
     assert rows["y_no2_3h"].notna().all()
     assert len(rows) == 33
+
+def test_training_rows_accept_an_earlier_training_end():
+    table = features.add_targets(make_table(48))
+    rows = features.training_rows(table, "no2", 3, train_end="2025-05-01 05:00")
+    assert len(rows) > 0
+    answer_time = rows["time_utc"] + pd.Timedelta(hours=3)
+    assert answer_time.max() <= pd.Timestamp("2025-05-01 05:00", tz="UTC")  
