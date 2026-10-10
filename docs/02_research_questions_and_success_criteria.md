@@ -45,9 +45,27 @@ How sensitive are the recommended pricing strategies to forecast errors and to u
 | S8. Survives behaviour uncertainty | Repeat for elasticity -0.1, -0.3 and -0.5, and report whether the best strategy changes | Driver response is assumed, not measured |
 | S9. Forecast value | The forecast is called necessary only if it beats the profile and persistence forecasts on the pricing outcome by more than the seed spread. Otherwise it is called sufficient but not shown to be necessary | Accurate and useful are different things |
 
-## Rules for these criteria
 
-1. They are fixed before modelling.
-2. Any change needs a written reason and a date added here.
-3. Every criterion is reported as pass or fail, whatever the outcome.
-4. Every claim in the final report is limited by what these criteria show.
+## Threshold review, 10 October 2026
+
+Reviewed on the training months (1 January to 30 April 2025 - 2,880 hours).
+Share of hours at or above each level:
+
+| Level | Westminster | City of London |
+|---|---|---|
+| 50 | 38.1% | 36.1% |
+| 60 | 24.3% | 28.0% |
+| 70 | 8.7% | 21.8% |
+
+Decision: keep 60 as the definition of high congestion. It marks about a quarter of Westminster hours, so it is neither rare nor constant. 50 flags more than a third of hours, and 70 flags too few (8.7%) for a stable alarm score. S3 is still reported at 50, 60 and 70.## Threshold review, 10 October 2026
+
+Reviewed on the training months only (1 January to 30 April 2025, 2,880 hours).
+Share of hours at or above each level:
+
+| Level | Westminster | City of London |
+|---|---|---|
+| 50 | 38.1% | 36.1% |
+| 60 | 24.3% | 28.0% |
+| 70 | 8.7% | 21.8% |
+
+Decision: keep 60 as the definition of high congestion. It marks about a quarter of Westminster hours, so it is neither rare nor constant. 50 flags more than a third of hours, and 70 flags too few (8.7%) for a stable alarm score. S3 is still reported at 50, 60 and 70.
