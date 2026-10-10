@@ -14,3 +14,10 @@ def add_targets(hourly):
         for h in config.HORIZONS:
             out[f"y_{name}_{h}h"] = out[column].shift(-h)
     return out
+
+def training_rows(table, name, h):
+    train_end = pd.Timestamp(config.TRAIN_END, tz="UTC")
+    answer_time = table["time_utc"] + pd.Timedelta(hours=h)
+    keep = (table["time_utc"] <= train_end) & (answer_time <= train_end)
+    rows = table.loc[keep]
+    return rows[rows[f"y_{name}_{h}h"].notna()]
