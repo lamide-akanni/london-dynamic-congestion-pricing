@@ -1,9 +1,6 @@
-# Tests for the answer columns built in src/ccz/features.py
+# Tests for the answer columns and input columns built in src/ccz/features.py
 import pandas as pd
 import pytest
-from ccz import config, features
-# Tests for the answer columns built in src/ccz/features.py
-import pandas as pd
 from ccz import config, features
 
 
@@ -41,6 +38,7 @@ def test_training_rows_never_use_an_answer_after_the_training_end():
             answer_time = rows["time_utc"] + pd.Timedelta(hours=h)
             assert (answer_time <= train_end).all()
 
+
 def test_lag_columns_look_backwards():
     table = features.add_lags(make_table(30))
     for column in config.TARGET_COLUMNS.values():
@@ -58,6 +56,7 @@ def make_input_table(n=60):
     table["dayofweek_london"] = local.dt.dayofweek
     for column in config.WEATHER_INPUTS:
         table[column] = range(n)
+    table[config.NEIGHBOUR_COLUMN] = range(n)
     return table
 
 
@@ -75,15 +74,22 @@ def test_clock_columns_use_london_time():
 
 
 def test_inputs_at_hour_t_do_not_depend_on_later_hours():
+    groups = ("recent", "neighbour")
     table = make_input_table(60)
     cut = 40
     changed = table.copy()
     later = changed.index >= cut + 1
-    for column in list(config.TARGET_COLUMNS.values()) + config.WEATHER_INPUTS:
+    source = list(config.TARGET_COLUMNS.values()) + config.WEATHER_INPUTS + [config.NEIGHBOUR_COLUMN]
+    for column in source:
         changed.loc[later, column] = 999
-    a = features.build_inputs(table)[features.input_columns()]
-    b = features.build_inputs(changed)[features.input_columns()]
+    a = features.build_inputs(table)[features.input_columns(groups)]
+    b = features.build_inputs(changed)[features.input_columns(groups)]
     pd.testing.assert_frame_equal(a.iloc[:cut + 1], b.iloc[:cut + 1])
+
+
+def test_default_inputs_are_still_the_original_32():
+    assert len(features.input_columns()) == 32
+
 
 def test_test_rows_start_at_the_test_start_and_have_answers():
     table = features.add_targets(make_table(48))
@@ -92,9 +98,10 @@ def test_test_rows_start_at_the_test_start_and_have_answers():
     assert rows["y_no2_3h"].notna().all()
     assert len(rows) == 33
 
+
 def test_training_rows_accept_an_earlier_training_end():
     table = features.add_targets(make_table(48))
     rows = features.training_rows(table, "no2", 3, train_end="2025-05-01 05:00")
     assert len(rows) > 0
     answer_time = rows["time_utc"] + pd.Timedelta(hours=3)
-    assert answer_time.max() <= pd.Timestamp("2025-05-01 05:00", tz="UTC")  
+    assert answer_time.max() <= pd.Timestamp("2025-05-01 05:00", tz="UTC")

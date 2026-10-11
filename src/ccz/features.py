@@ -46,16 +46,36 @@ def add_clock(table):
 
 
 def build_inputs(table):
-    return add_clock(add_lags(table))
+    return add_neighbour(add_recent_stats(add_clock(add_lags(table))))
 
 
-def input_columns():
+def input_columns(groups=()):
     now = list(config.TARGET_COLUMNS.values())
     lags = [f"{c}_lag{k}h" for c in now for k in config.LAG_HOURS]
     clock = ["hour_sin", "hour_cos", "is_weekend", "is_bank_holiday"]
-    return now + lags + clock + config.WEATHER_INPUTS
+    columns = now + lags + clock + config.WEATHER_INPUTS
+    if "recent" in groups:
+        columns += [f"{c}_{stat}{config.ROLLING_HOURS}h" for c in now for stat in ("mean", "std")]
+    if "neighbour" in groups:
+        columns += [f"{config.NEIGHBOUR_COLUMN}_lag{k}h" for k in config.NEIGHBOUR_LAGS]
+    return columns
 
 def test_rows(table, name, h):
     test_start = pd.Timestamp(config.TEST_START, tz="UTC")
     rows = table.loc[table["time_utc"] >= test_start]
     return rows[rows[f"y_{name}_{h}h"].notna()]
+
+def add_recent_stats(table):
+    out = table.copy()
+    for column in config.TARGET_COLUMNS.values():
+        recent = out[column].rolling(config.ROLLING_HOURS)
+        out[f"{column}_mean{config.ROLLING_HOURS}h"] = recent.mean()
+        out[f"{column}_std{config.ROLLING_HOURS}h"] = recent.std()
+    return out
+
+
+def add_neighbour(table):
+    out = table.copy()
+    for k in config.NEIGHBOUR_LAGS:
+        out[f"{config.NEIGHBOUR_COLUMN}_lag{k}h"] = out[config.NEIGHBOUR_COLUMN].shift(k)
+    return out

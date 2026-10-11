@@ -128,3 +128,8 @@ BASE_RULE = {"congestion": "weekly_profile", "no2": "persistence", "pm25": "pers
 # Practice inside the training months. Each month is predicted by a model
 # trained only on earlier months. May and June are never used here.
 VALIDATION_FOLDS = [("2025-03", "2025-02-28 23:00"), ("2025-04", "2025-03-31 23:00")]
+
+# Extra input groups to test (Step 6 of the build guide).
+ROLLING_HOURS = 6                      # window for the recent mean and spread
+NEIGHBOUR_COLUMN = "congestion_check"  # City of London congestion, next to Westminster
+NEIGHBOUR_LAGS = [0, 1, 3]             # now, 1 hour ago, 3 hours ago

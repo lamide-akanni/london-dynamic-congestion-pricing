@@ -1,4 +1,4 @@
-# First look at three models. Scored on March and April only, each month by a model
+# First look at three models. Scored on validation months, March and April only, each month by a model
 # trained on earlier months. The test months (May, June) are not touched.
 # Settings are untuned first guesses (see src/ccz/models.py). Tuning comes later (Step 11).
 import pandas as pd
