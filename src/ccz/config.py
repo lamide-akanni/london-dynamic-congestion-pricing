@@ -70,9 +70,7 @@ TEST_START = "2025-05-01 00:00"
 # Rolling-origin check: each month below is predicted by a model trained
 # only on the months before it.
 ROLLING_TEST_MONTHS = ["2025-03", "2025-04", "2025-05", "2025-06"]
-# Practice exams inside the training months. Each month is predicted by a model
-# trained only on earlier months. May and June are never used here.
-VALIDATION_FOLDS = [("2025-03", "2025-02-28 23:00"), ("2025-04", "2025-03-31 23:00")]
+
 
 # ---------------------------------------------------------------------------
 # Forecasting
@@ -122,3 +120,11 @@ OPTIMISER_SEEDS = [1, 2, 3, 4, 5]
 
 # Stress test: forecast error multiplied by these amounts (S7).
 FORECAST_ERROR_MULTIPLIERS = [0.0, 0.5, 1.0, 1.5, 2.0]
+
+# The simple rule each model starts from and then corrects.
+# Decided 10 October 2026 after the first look at March and April.
+BASE_RULE = {"congestion": "weekly_profile", "no2": "persistence", "pm25": "persistence"}
+
+# Practice inside the training months. Each month is predicted by a model
+# trained only on earlier months. May and June are never used here.
+VALIDATION_FOLDS = [("2025-03", "2025-02-28 23:00"), ("2025-04", "2025-03-31 23:00")]

@@ -15,3 +15,6 @@ def baseline_guesses(train, test, name, h):
         "persistence": test[column],
         "weekly_profile": [profile.get(k, np.nan) for k in keys],
     }, index=test.index)
+
+def base_guess(train, rows, name, h):
+    return baseline_guesses(train, rows, name, h)[config.BASE_RULE[name]]

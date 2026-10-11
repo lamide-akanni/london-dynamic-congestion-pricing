@@ -1,31 +1,11 @@
 # First look at three models. Scored on March and April only, each month by a model
 # trained on earlier months. The test months (May, June) are not touched.
-# Settings below are untuned first guesses. Tuning comes later (Step 11).
+# Settings are untuned first guesses (see src/ccz/models.py). Tuning comes later (Step 11).
 import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import Ridge
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from xgboost import XGBRegressor
-from ccz import baselines, config, features
+from ccz import baselines, config, features, models
 
 BASELINES = ["mean", "median", "persistence", "weekly_profile"]
-MODELS = ["ridge", "random_forest", "xgboost"]
-
-
-def make_models():
-    seed = config.RANDOM_SEED
-    return {
-        "ridge": make_pipeline(SimpleImputer(strategy="median"), StandardScaler(), Ridge(alpha=1.0)),
-        "random_forest": make_pipeline(
-            SimpleImputer(strategy="median"),
-            RandomForestRegressor(n_estimators=200, min_samples_leaf=5, random_state=seed, n_jobs=-1),
-        ),
-        "xgboost": XGBRegressor(n_estimators=200, learning_rate=0.05, max_depth=4,
-                                subsample=0.8, colsample_bytree=0.8, random_state=seed),
-    }
-
+MODEL_NAMES = ["ridge", "random_forest", "xgboost"]
 
 hourly = pd.read_csv(config.HOURLY_FILE, parse_dates=["time_utc"])
 table = features.build_inputs(features.add_targets(hourly))
@@ -40,7 +20,7 @@ for name in config.TARGET_COLUMNS:
             train = features.training_rows(table, name, h, train_end=train_end)
             valid = features.month_rows(table, name, h, month)
             guesses = baselines.baseline_guesses(train, valid, name, h)
-            for label, model in make_models().items():
+            for label, model in models.make_models().items():
                 model.fit(train[inputs], train[y])
                 guesses[label] = model.predict(valid[inputs])
             usable = guesses[BASELINES].notna().all(axis=1)
@@ -48,7 +28,7 @@ for name in config.TARGET_COLUMNS:
 
         mae = pd.concat(errors).mean()
         best_base = mae[BASELINES].idxmin()
-        best_model = mae[MODELS].idxmin()
+        best_model = mae[MODEL_NAMES].idxmin()
         results.append({
             "target": name,
             "hours_ahead": h,
