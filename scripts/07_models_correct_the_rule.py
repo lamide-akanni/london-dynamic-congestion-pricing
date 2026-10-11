@@ -49,3 +49,21 @@ for name in config.TARGET_COLUMNS:
 out = pd.DataFrame(results)
 print(out.to_string(index=False))
 out.to_csv(config.TABLES_DIR / "validation_models_correct_rule_mae.csv", index=False)
+
+# Tuning: random search, judged on the validation months only (March, April).
+TUNING_TRIES = 8
+SEARCH_SPACE = {
+    "ridge": {"alpha": [0.1, 1.0, 10.0, 100.0, 1000.0]},
+    "random_forest": {
+        "n_estimators": [200, 400],
+        "min_samples_leaf": [2, 5, 10, 20],
+        "max_features": [0.3, 0.5, 1.0],
+    },
+    "xgboost": {
+        "n_estimators": [100, 200, 400],
+        "learning_rate": [0.02, 0.05, 0.1],
+        "max_depth": [2, 3, 4, 6],
+        "subsample": [0.7, 1.0],
+        "colsample_bytree": [0.5, 0.8, 1.0],
+    },
+}

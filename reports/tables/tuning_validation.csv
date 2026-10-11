@@ -1,0 +1,10 @@
+target,hours_ahead,baseline_mae,default_mae,tuned_mae,skill_default,skill_tuned,chosen
+congestion,1,5.05,2.79,2.74,44.7,45.7,xgboost / direct
+congestion,3,4.97,4.32,4.32,13.0,13.0,random_forest / correct
+congestion,6,4.94,4.6,4.59,6.8,7.0,random_forest / correct
+no2,1,5.29,5.34,5.18,-1.0,2.0,xgboost / correct
+no2,3,8.47,8.11,8.02,4.3,5.3,xgboost / correct
+no2,6,11.06,10.77,10.5,2.6,5.1,random_forest / correct
+pm25,1,3.52,3.45,3.4,2.2,3.5,random_forest / correct
+pm25,3,5.08,4.75,4.72,6.5,7.2,random_forest / correct
+pm25,6,6.85,6.57,6.4,4.1,6.6,random_forest / correct

@@ -133,3 +133,21 @@ VALIDATION_FOLDS = [("2025-03", "2025-02-28 23:00"), ("2025-04", "2025-03-31 23:
 ROLLING_HOURS = 6                      # window for the recent mean and spread
 NEIGHBOUR_COLUMN = "congestion_check"  # City of London congestion, next to Westminster
 NEIGHBOUR_LAGS = [0, 1, 3]             # now, 1 hour ago, 3 hours ago
+
+# Tuning: random search, judged on the validation months only (March, April).
+TUNING_TRIES = 8
+SEARCH_SPACE = {
+    "ridge": {"alpha": [0.1, 1.0, 10.0, 100.0, 1000.0]},
+    "random_forest": {
+        "n_estimators": [200, 400],
+        "min_samples_leaf": [2, 5, 10, 20],
+        "max_features": [0.3, 0.5, 1.0],
+    },
+    "xgboost": {
+        "n_estimators": [100, 200, 400],
+        "learning_rate": [0.02, 0.05, 0.1],
+        "max_depth": [2, 3, 4, 6],
+        "subsample": [0.7, 1.0],
+        "colsample_bytree": [0.5, 0.8, 1.0],
+    },
+}
