@@ -1,0 +1,10 @@
+target,hours_ahead,rows,baseline_mae,model_mae,skill_pct,worst_month_ratio,S1_pass,S2_pass
+congestion,1,1462,7.84,4.12,47.5,0.85,True,True
+congestion,3,1460,9.4,5.29,43.7,0.89,True,True
+congestion,6,1457,9.39,6.28,33.1,0.86,True,True
+no2,1,1462,4.6,4.48,2.6,1.22,False,True
+no2,3,1460,7.13,6.45,9.6,1.37,False,True
+no2,6,1457,9.64,9.05,6.1,1.35,False,True
+pm25,1,1442,2.83,2.69,4.7,1.29,False,True
+pm25,3,1438,3.45,3.42,1.1,1.5,False,False
+pm25,6,1432,4.03,4.15,-3.1,1.76,False,False
