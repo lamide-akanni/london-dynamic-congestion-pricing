@@ -151,3 +151,10 @@ SEARCH_SPACE = {
         "colsample_bytree": [0.5, 0.8, 1.0],
     },
 }
+
+# Pricing simulation: the hours (London time) that get a price in each block.
+# Prices are published at 07:00 and 13:00, using the last full hour before.
+PRICING_BLOCKS = {
+    "morning": [7, 8, 9, 10, 11, 12],
+    "afternoon": [13, 14, 15, 16, 17],
+}
