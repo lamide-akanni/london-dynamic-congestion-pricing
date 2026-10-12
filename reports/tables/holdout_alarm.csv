@@ -1,0 +1,7 @@
+hours_ahead,forecaster,real_alarm_hours,precision,recall,f1,S3_pass
+1,model,578,0.95,0.96,0.95,True
+1,best_baseline,578,0.89,0.89,0.89,True
+3,model,578,0.97,0.84,0.9,True
+3,best_baseline,578,0.97,0.66,0.79,False
+6,model,578,0.98,0.81,0.89,True
+6,best_baseline,578,0.97,0.66,0.79,False

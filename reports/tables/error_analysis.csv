@@ -1,0 +1,199 @@
+grouping,key,group,hours,model_mae,baseline_mae,bias,ratio
+hour_of_day,cong_1h,00-05 night,364,1.66,5.225,1.08,0.318
+hour_of_day,cong_1h,06-09 morning,244,3.764,14.914,-2.823,0.252
+hour_of_day,cong_1h,10-15 midday,366,6.245,5.707,-4.928,1.094
+hour_of_day,cong_1h,16-19 evening,244,4.468,5.409,-1.786,0.826
+hour_of_day,cong_1h,20-23 late,244,4.59,10.273,1.369,0.447
+hour_of_day,cong_3h,00-05 night,362,1.907,1.879,0.251,1.015
+hour_of_day,cong_3h,06-09 morning,244,5.206,7.679,-4.49,0.678
+hour_of_day,cong_3h,10-15 midday,366,7.839,15.956,-6.735,0.491
+hour_of_day,cong_3h,16-19 evening,244,7.151,14.44,-6.498,0.495
+hour_of_day,cong_3h,20-23 late,244,4.712,7.385,-1.103,0.638
+hour_of_day,cong_6h,00-05 night,360,2.15,1.795,0.441,1.198
+hour_of_day,cong_6h,06-09 morning,243,4.541,7.707,-3.491,0.589
+hour_of_day,cong_6h,10-15 midday,366,11.335,15.956,-10.68,0.71
+hour_of_day,cong_6h,16-19 evening,244,8.467,14.44,-8.056,0.586
+hour_of_day,cong_6h,20-23 late,244,4.364,7.385,-1.923,0.591
+hour_of_day,no2_1h,00-05 night,364,3.61,3.785,0.342,0.954
+hour_of_day,no2_1h,06-09 morning,244,3.663,3.427,1.573,1.069
+hour_of_day,no2_1h,10-15 midday,366,4.363,4.411,0.788,0.989
+hour_of_day,no2_1h,16-19 evening,244,5.639,5.956,0.13,0.947
+hour_of_day,no2_1h,20-23 late,244,5.608,5.921,1.047,0.947
+hour_of_day,no2_3h,00-05 night,362,6.278,7.397,2.415,0.849
+hour_of_day,no2_3h,06-09 morning,244,5.771,5.831,2.678,0.99
+hour_of_day,no2_3h,10-15 midday,366,5.601,6.287,2.097,0.891
+hour_of_day,no2_3h,16-19 evening,244,6.585,7.658,-0.457,0.86
+hour_of_day,no2_3h,20-23 late,244,8.499,8.786,2.562,0.967
+hour_of_day,no2_6h,00-05 night,360,9.602,12.013,6.695,0.799
+hour_of_day,no2_6h,06-09 morning,243,8.536,7.916,5.476,1.078
+hour_of_day,no2_6h,10-15 midday,366,8.336,8.352,6.521,0.998
+hour_of_day,no2_6h,16-19 evening,244,9.096,9.691,6.294,0.939
+hour_of_day,no2_6h,20-23 late,244,9.789,9.718,4.502,1.007
+hour_of_day,pm25_1h,00-05 night,358,2.715,2.698,0.849,1.006
+hour_of_day,pm25_1h,06-09 morning,240,2.432,2.512,0.684,0.968
+hour_of_day,pm25_1h,10-15 midday,360,2.858,2.988,0.718,0.957
+hour_of_day,pm25_1h,16-19 evening,242,2.626,2.961,0.616,0.887
+hour_of_day,pm25_1h,20-23 late,242,2.749,2.95,1.005,0.932
+hour_of_day,pm25_3h,00-05 night,356,3.595,3.48,1.888,1.033
+hour_of_day,pm25_3h,06-09 morning,240,3.415,3.171,1.81,1.077
+hour_of_day,pm25_3h,10-15 midday,360,3.417,3.512,1.448,0.973
+hour_of_day,pm25_3h,16-19 evening,240,3.229,3.477,1.034,0.929
+hour_of_day,pm25_3h,20-23 late,242,3.332,3.583,1.576,0.93
+hour_of_day,pm25_6h,00-05 night,354,4.098,4.201,2.456,0.976
+hour_of_day,pm25_6h,06-09 morning,239,4.557,3.649,3.483,1.249
+hour_of_day,pm25_6h,10-15 midday,360,4.437,4.143,2.822,1.071
+hour_of_day,pm25_6h,16-19 evening,240,3.753,4.017,1.746,0.934
+hour_of_day,pm25_6h,20-23 late,239,3.796,3.977,1.929,0.954
+weekday,cong_1h,Monday,216,3.34,6.974,-0.437,0.479
+weekday,cong_1h,Tuesday,192,4.035,7.776,-1.567,0.519
+weekday,cong_1h,Wednesday,192,5.054,8.513,-2.358,0.594
+weekday,cong_1h,Thursday,214,5.64,8.688,-2.844,0.649
+weekday,cong_1h,Friday,216,4.239,8.214,-2.335,0.516
+weekday,cong_1h,Saturday,216,3.786,7.783,-1.642,0.486
+weekday,cong_1h,Sunday,216,2.833,6.979,0.531,0.406
+weekday,cong_3h,Monday,216,6.046,10.146,-5.188,0.596
+weekday,cong_3h,Tuesday,192,5.223,9.278,-4.265,0.563
+weekday,cong_3h,Wednesday,192,5.58,10.698,-3.388,0.522
+weekday,cong_3h,Thursday,212,5.325,10.975,-2.838,0.485
+weekday,cong_3h,Friday,216,5.118,10.427,-3.231,0.491
+weekday,cong_3h,Saturday,216,5.005,7.843,-3.257,0.638
+weekday,cong_3h,Sunday,216,4.762,6.571,-3.386,0.725
+weekday,cong_6h,Monday,216,6.695,10.146,-5.544,0.66
+weekday,cong_6h,Tuesday,192,6.541,9.278,-5.731,0.705
+weekday,cong_6h,Wednesday,192,7.021,10.522,-5.33,0.667
+weekday,cong_6h,Thursday,209,7.152,11.114,-5.473,0.644
+weekday,cong_6h,Friday,216,6.574,10.427,-4.867,0.631
+weekday,cong_6h,Saturday,216,5.419,7.843,-3.788,0.691
+weekday,cong_6h,Sunday,216,4.73,6.582,-3.235,0.719
+weekday,no2_1h,Monday,216,4.711,4.795,0.969,0.982
+weekday,no2_1h,Tuesday,192,4.401,4.569,0.775,0.963
+weekday,no2_1h,Wednesday,192,4.845,4.978,0.592,0.973
+weekday,no2_1h,Thursday,214,4.57,4.794,0.621,0.953
+weekday,no2_1h,Friday,216,4.277,4.453,0.643,0.96
+weekday,no2_1h,Saturday,216,4.569,4.606,0.632,0.992
+weekday,no2_1h,Sunday,216,4.015,4.048,0.945,0.992
+weekday,no2_3h,Monday,216,6.228,6.648,2.469,0.937
+weekday,no2_3h,Tuesday,192,6.2,7.065,1.91,0.877
+weekday,no2_3h,Wednesday,192,7.164,7.851,1.446,0.913
+weekday,no2_3h,Thursday,212,6.432,7.423,1.617,0.867
+weekday,no2_3h,Friday,216,6.648,7.486,1.439,0.888
+weekday,no2_3h,Saturday,216,6.604,7.11,2.103,0.929
+weekday,no2_3h,Sunday,216,5.899,6.425,2.421,0.918
+weekday,no2_6h,Monday,216,9.452,7.865,7.193,1.202
+weekday,no2_6h,Tuesday,192,8.94,9.871,6.647,0.906
+weekday,no2_6h,Wednesday,192,10.134,10.936,6.008,0.927
+weekday,no2_6h,Thursday,209,9.046,9.822,5.9,0.921
+weekday,no2_6h,Friday,216,8.653,9.831,4.614,0.88
+weekday,no2_6h,Saturday,216,8.934,10.185,5.689,0.877
+weekday,no2_6h,Sunday,216,8.317,9.124,6.111,0.912
+weekday,pm25_1h,Monday,216,2.803,2.731,0.94,1.026
+weekday,pm25_1h,Tuesday,192,2.709,2.87,0.962,0.944
+weekday,pm25_1h,Wednesday,192,2.776,2.786,0.993,0.996
+weekday,pm25_1h,Thursday,212,2.924,3.226,0.592,0.906
+weekday,pm25_1h,Friday,198,2.653,2.884,0.418,0.92
+weekday,pm25_1h,Saturday,216,2.571,2.69,0.89,0.956
+weekday,pm25_1h,Sunday,216,2.436,2.606,0.649,0.934
+weekday,pm25_3h,Monday,216,3.522,3.472,1.581,1.014
+weekday,pm25_3h,Tuesday,192,3.538,3.646,1.739,0.97
+weekday,pm25_3h,Wednesday,192,3.54,3.38,1.937,1.047
+weekday,pm25_3h,Thursday,210,3.486,3.748,1.446,0.93
+weekday,pm25_3h,Friday,196,3.385,3.454,1.178,0.98
+weekday,pm25_3h,Saturday,216,3.537,3.421,1.79,1.034
+weekday,pm25_3h,Sunday,216,2.924,3.074,1.337,0.951
+weekday,pm25_6h,Monday,216,4.337,4.25,2.376,1.02
+weekday,pm25_6h,Tuesday,192,4.133,3.948,2.796,1.047
+weekday,pm25_6h,Wednesday,192,4.122,3.865,2.955,1.067
+weekday,pm25_6h,Thursday,207,4.2,4.512,2.506,0.931
+weekday,pm25_6h,Friday,193,4.173,4.062,1.768,1.027
+weekday,pm25_6h,Saturday,216,4.448,4.014,3.105,1.108
+weekday,pm25_6h,Sunday,216,3.648,3.528,2.081,1.034
+real_level,cong_1h,1 lowest quarter,367,1.645,4.751,0.71,0.346
+real_level,cong_1h,2,366,3.486,11.852,0.462,0.294
+real_level,cong_1h,3,363,4.093,9.462,-0.388,0.433
+real_level,cong_1h,4 highest quarter,366,7.25,5.299,-6.803,1.368
+real_level,cong_3h,1 lowest quarter,365,1.563,1.469,0.579,1.064
+real_level,cong_3h,2,366,3.989,6.057,-1.369,0.659
+real_level,cong_3h,3,366,6.295,10.649,-4.939,0.591
+real_level,cong_3h,4 highest quarter,363,9.339,19.472,-8.89,0.48
+real_level,cong_6h,1 lowest quarter,365,1.867,1.393,0.775,1.341
+real_level,cong_6h,2,365,3.511,6.117,-1.275,0.574
+real_level,cong_6h,3,364,6.483,10.644,-5.545,0.609
+real_level,cong_6h,4 highest quarter,363,13.317,19.472,-13.313,0.684
+real_level,no2_1h,1 lowest quarter,369,2.889,2.676,2.02,1.08
+real_level,no2_1h,2,363,3.852,3.74,1.877,1.03
+real_level,no2_1h,3,364,4.861,5.0,1.395,0.972
+real_level,no2_1h,4 highest quarter,366,6.325,6.998,-2.324,0.904
+real_level,no2_3h,1 lowest quarter,369,5.707,5.208,4.904,1.096
+real_level,no2_3h,2,363,5.915,6.138,4.447,0.964
+real_level,no2_3h,3,364,5.818,6.715,2.516,0.866
+real_level,no2_3h,4 highest quarter,364,8.354,10.494,-4.206,0.796
+real_level,no2_6h,1 lowest quarter,369,10.715,9.27,10.547,1.156
+real_level,no2_6h,2,360,9.657,7.303,9.495,1.322
+real_level,no2_6h,3,367,7.838,8.78,6.682,0.893
+real_level,no2_6h,4 highest quarter,361,7.986,13.21,-2.772,0.605
+real_level,pm25_1h,1 lowest quarter,370,3.21,2.481,3.084,1.294
+real_level,pm25_1h,2,383,2.339,2.415,1.638,0.969
+real_level,pm25_1h,3,389,2.013,2.877,-0.211,0.7
+real_level,pm25_1h,4 highest quarter,300,3.395,3.71,-1.891,0.915
+real_level,pm25_3h,1 lowest quarter,370,4.362,3.212,4.179,1.358
+real_level,pm25_3h,2,381,3.07,2.74,2.403,1.12
+real_level,pm25_3h,3,389,2.392,3.308,0.598,0.723
+real_level,pm25_3h,4 highest quarter,298,4.017,4.854,-1.466,0.828
+real_level,pm25_6h,1 lowest quarter,369,5.729,3.917,5.624,1.463
+real_level,pm25_6h,2,379,3.845,2.98,3.438,1.29
+real_level,pm25_6h,3,389,2.942,3.776,1.552,0.779
+real_level,pm25_6h,4 highest quarter,295,4.168,5.834,-1.302,0.714
+month,cong_1h,2025-05,742,3.491,7.372,-1.199,0.474
+month,cong_1h,2025-06,720,4.762,8.313,-1.821,0.573
+month,cong_3h,2025-05,740,4.711,8.192,-2.889,0.575
+month,cong_3h,2025-06,720,5.887,10.635,-4.426,0.554
+month,cong_6h,2025-05,737,5.46,8.198,-3.669,0.666
+month,cong_6h,2025-06,720,7.129,10.614,-6.013,0.672
+month,no2_1h,2025-05,742,4.185,4.248,0.703,0.985
+month,no2_1h,2025-06,720,4.783,4.964,0.781,0.964
+month,no2_3h,2025-05,740,6.303,6.737,1.811,0.936
+month,no2_3h,2025-06,720,6.593,7.539,2.039,0.874
+month,no2_6h,2025-05,737,8.85,9.032,5.514,0.98
+month,no2_6h,2025-06,720,9.26,10.256,6.524,0.903
+month,pm25_1h,2025-05,742,2.748,2.947,0.703,0.932
+month,pm25_1h,2025-06,700,2.637,2.697,0.853,0.978
+month,pm25_3h,2025-05,740,3.487,3.664,1.58,0.952
+month,pm25_3h,2025-06,698,3.339,3.231,1.559,1.034
+month,pm25_6h,2025-05,737,3.935,4.098,2.474,0.96
+month,pm25_6h,2025-06,695,4.381,3.95,2.553,1.109
+bank_holiday,cong_1h,bank holiday,48,2.355,5.065,-0.228,0.465
+bank_holiday,cong_1h,normal day,1414,4.177,7.93,-1.549,0.527
+bank_holiday,cong_3h,bank holiday,48,6.13,10.944,-5.31,0.56
+bank_holiday,cong_3h,normal day,1412,5.262,9.344,-3.59,0.563
+bank_holiday,cong_6h,bank holiday,48,5.932,10.944,-3.453,0.542
+bank_holiday,cong_6h,normal day,1409,6.297,9.339,-4.874,0.674
+bank_holiday,no2_1h,bank holiday,48,2.993,2.994,0.988,1.0
+bank_holiday,no2_1h,normal day,1414,4.53,4.655,0.733,0.973
+bank_holiday,no2_3h,bank holiday,48,5.593,5.108,3.063,1.095
+bank_holiday,no2_3h,normal day,1412,6.475,7.202,1.885,0.899
+bank_holiday,no2_6h,bank holiday,48,9.514,6.052,8.729,1.572
+bank_holiday,no2_6h,normal day,1409,9.037,9.759,5.921,0.926
+bank_holiday,pm25_1h,bank holiday,48,2.783,2.979,0.634,0.934
+bank_holiday,pm25_1h,normal day,1394,2.691,2.821,0.781,0.954
+bank_holiday,pm25_3h,bank holiday,48,3.173,3.312,1.178,0.958
+bank_holiday,pm25_3h,normal day,1390,3.423,3.458,1.583,0.99
+bank_holiday,pm25_6h,bank holiday,48,3.11,3.625,1.902,0.858
+bank_holiday,pm25_6h,normal day,1384,4.188,4.04,2.534,1.037
+rain,cong_1h,dry hour,1309,3.986,7.879,-1.256,0.506
+rain,cong_1h,wet hour,153,5.234,7.469,-3.644,0.701
+rain,cong_3h,dry hour,1307,5.216,9.27,-3.557,0.563
+rain,cong_3h,wet hour,153,5.927,10.481,-4.411,0.566
+rain,cong_6h,dry hour,1304,6.048,9.267,-4.584,0.653
+rain,cong_6h,wet hour,153,8.304,10.458,-6.901,0.794
+rain,no2_1h,dry hour,1309,4.557,4.678,0.764,0.974
+rain,no2_1h,wet hour,153,3.816,3.94,0.553,0.968
+rain,no2_3h,dry hour,1307,6.511,7.156,1.919,0.91
+rain,no2_3h,wet hour,153,5.89,6.933,1.964,0.85
+rain,no2_6h,dry hour,1304,8.963,9.485,5.896,0.945
+rain,no2_6h,wet hour,153,9.817,10.928,7.016,0.898
+rain,pm25_1h,dry hour,1292,2.69,2.828,0.745,0.951
+rain,pm25_1h,wet hour,150,2.732,2.81,1.042,0.972
+rain,pm25_3h,dry hour,1288,3.436,3.468,1.559,0.991
+rain,pm25_3h,wet hour,150,3.237,3.33,1.662,0.972
+rain,pm25_6h,dry hour,1282,4.133,4.012,2.462,1.03
+rain,pm25_6h,wet hour,150,4.313,4.147,2.946,1.04
