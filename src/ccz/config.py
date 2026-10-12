@@ -158,3 +158,8 @@ PRICING_BLOCKS = {
     "morning": [7, 8, 9, 10, 11, 12],
     "afternoon": [13, 14, 15, 16, 17],
 }
+
+# Price to outcome model (assumed, not measured: see docs)
+BASE_PRICE = 15        # what drivers paid in the data window
+BPR_ALPHA = 0.15       # standard textbook road curve settings, not calibrated to London
+BPR_EXPONENT = 4
