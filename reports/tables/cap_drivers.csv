@@ -1,0 +1,10 @@
+plan,driver,average_paid,lowest_day,highest_day,days_cap_applies
+flat 15,A: enters once (08:00),15.0,15.0,15.0,0
+flat 15,"B: enters twice (08:00 and 15:00), capped",18.0,18.0,18.0,40
+flat 15,C: enters once and stays,15.0,15.0,15.0,0
+flat 18,A: enters once (08:00),18.0,18.0,18.0,0
+flat 18,"B: enters twice (08:00 and 15:00), capped",18.0,18.0,18.0,40
+flat 18,C: enters once and stays,18.0,18.0,18.0,0
+dynamic (our model),A: enters once (08:00),13.966602443457697,13.61946815021394,14.402199850708618,0
+dynamic (our model),"B: enters twice (08:00 and 15:00), capped",18.0,18.0,18.0,40
+dynamic (our model),C: enters once and stays,13.966602443457697,13.61946815021394,14.402199850708618,0
