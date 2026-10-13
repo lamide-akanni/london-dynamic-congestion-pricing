@@ -31,9 +31,9 @@ print(f"Trade-off set size: {len(X)}")
 congestion_pct = 100 * (F[:, 0] / c.mean() - 1)
 pollution_ratio = (F[:, 1] / n.mean() + F[:, 2] / p.mean()) / 2
 harm = pricing.combined_harm({"congestion": F[:, 0], "no2": F[:, 1], "pm25": F[:, 2]}, c, n, p)
-spread = F.max(axis=0) - F.min(axis=0)
-spread[spread == 0] = 1.0
-balanced_score = ((F - F.min(axis=0)) / spread).sum(axis=1)
+cost_range = max(F[:, 3].max() - F[:, 3].min(), 1e-9)
+harm_range = max(harm.max() - harm.min(), 1e-9)
+balanced_score = (F[:, 3] - F[:, 3].min()) / cost_range + (harm - harm.min()) / harm_range
 
 picks = {
     "lowest driver cost": int(np.argmin(F[:, 3])),
@@ -45,6 +45,7 @@ picks = {
 base_revenue = float((pricing.baseline_traffic(c) * config.BASE_PRICE).sum())
 rows = []
 plans = [("flat 15", np.full(len(c), 15.0))] + [(name, X[i]) for name, i in picks.items()]
+plans.append(("dynamic at 15 (solver)", optimiser.solve_matched(ELASTICITY, c, n, p, shares, 15.0)))
 for name, price in plans:
     out = pricing.outcomes(price, ELASTICITY, c, n, p, shares)
     row = {"strategy": name}
