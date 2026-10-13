@@ -38,3 +38,26 @@ def outcomes(price, elasticity, congestion, no2, pm25, shares):
         "average_price_paid": float((vehicles * price).sum() / vehicles.sum()),
         "revenue": float((vehicles * price).sum()),
     }
+
+def evaluate_many(prices, elasticity, congestion, no2, pm25, shares):
+    # The same model as outcomes(), for many price schedules at once.
+    # prices has one row per schedule and one column per priced hour.
+    prices = np.atleast_2d(np.asarray(prices, dtype=float))
+    ratio = (prices / config.BASE_PRICE) ** elasticity
+    vehicles = baseline_traffic(congestion) * ratio
+    return {
+        "congestion": (np.asarray(congestion, dtype=float) * ratio ** config.BPR_EXPONENT).mean(axis=1),
+        "no2": (np.asarray(no2, dtype=float) * (1 - shares["no2"] + shares["no2"] * ratio)).mean(axis=1),
+        "pm25": (np.asarray(pm25, dtype=float) * (1 - shares["pm25"] + shares["pm25"] * ratio)).mean(axis=1),
+        "average_price_paid": (vehicles * prices).sum(axis=1) / vehicles.sum(axis=1),
+    }
+
+
+def combined_harm(result, congestion, no2, pm25):
+    # One number for how bad congestion and pollution are. 1.0 means "as in the observed hours".
+    # Equal weight on congestion, NO2 and PM2.5, each relative to its own observed average.
+    return (
+        result["congestion"] / np.mean(congestion)
+        + result["no2"] / np.mean(no2)
+        + result["pm25"] / np.mean(pm25)
+    ) / 3

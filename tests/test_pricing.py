@@ -61,3 +61,18 @@ def test_road_curve_round_trip():
 
 def test_flat_price_means_average_price_paid_is_that_price():
     assert run(16.0)["average_price_paid"] == pytest.approx(16.0)
+
+def test_many_schedules_match_the_single_schedule_model():
+    prices = np.array([[12.0, 15.0, 18.0], [18.0, 18.0, 10.0]])
+    many = pricing.evaluate_many(prices, -0.3, CONGESTION, NO2, PM25, SHARES)
+    for i, row in enumerate(prices):
+        one = pricing.outcomes(row, -0.3, CONGESTION, NO2, PM25, SHARES)
+        assert many["congestion"][i] == pytest.approx(one["congestion"].mean())
+        assert many["no2"][i] == pytest.approx(one["no2"].mean())
+        assert many["pm25"][i] == pytest.approx(one["pm25"].mean())
+        assert many["average_price_paid"][i] == pytest.approx(one["average_price_paid"])
+
+
+def test_combined_harm_is_one_when_nothing_changes():
+    out = pricing.evaluate_many(np.full((1, 3), 15.0), -0.3, CONGESTION, NO2, PM25, SHARES)
+    assert pricing.combined_harm(out, CONGESTION, NO2, PM25)[0] == pytest.approx(1.0)   
