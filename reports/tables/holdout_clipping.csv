@@ -1,0 +1,10 @@
+target,hours_ahead,hours_changed,mae_before,mae_after
+congestion,1,15,4.117,4.114
+congestion,3,26,5.291,5.263
+congestion,6,15,6.285,6.232
+no2,1,0,4.479,4.479
+no2,3,0,6.446,6.446
+no2,6,0,9.053,9.053
+pm25,1,0,2.694,2.694
+pm25,3,0,3.415,3.415
+pm25,6,0,4.152,4.152

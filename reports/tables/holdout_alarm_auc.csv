@@ -1,0 +1,7 @@
+hours_ahead,forecaster,alarm_share,roc_auc,pr_auc
+1,model,0.395,0.992,0.982
+1,best_baseline,0.395,0.968,0.951
+3,model,0.396,0.99,0.985
+3,best_baseline,0.396,0.983,0.973
+6,model,0.397,0.989,0.983
+6,best_baseline,0.397,0.983,0.973
