@@ -1,0 +1,67 @@
+{
+  "created_utc": "2026-10-13 09:54",
+  "trained_through_utc": "2025-06-30 22:00",
+  "note": "Trained on all available hours. Reported accuracy comes from the April-trained models scored on May and June.",
+  "libraries": {
+    "python": "3.13.12",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1"
+  },
+  "models": {
+    "congestion_1h": {
+      "kind": "xgboost",
+      "mode": "direct",
+      "rows": 4342,
+      "file": "congestion_1h.joblib"
+    },
+    "congestion_3h": {
+      "kind": "random_forest",
+      "mode": "correct",
+      "rows": 4340,
+      "file": "congestion_3h.joblib"
+    },
+    "congestion_6h": {
+      "kind": "random_forest",
+      "mode": "correct",
+      "rows": 4337,
+      "file": "congestion_6h.joblib"
+    },
+    "no2_1h": {
+      "kind": "xgboost",
+      "mode": "correct",
+      "rows": 4302,
+      "file": "no2_1h.joblib"
+    },
+    "no2_3h": {
+      "kind": "xgboost",
+      "mode": "correct",
+      "rows": 4300,
+      "file": "no2_3h.joblib"
+    },
+    "no2_6h": {
+      "kind": "random_forest",
+      "mode": "correct",
+      "rows": 4297,
+      "file": "no2_6h.joblib"
+    },
+    "pm25_1h": {
+      "kind": "random_forest",
+      "mode": "correct",
+      "rows": 4286,
+      "file": "pm25_1h.joblib"
+    },
+    "pm25_3h": {
+      "kind": "random_forest",
+      "mode": "correct",
+      "rows": 4284,
+      "file": "pm25_3h.joblib"
+    },
+    "pm25_6h": {
+      "kind": "random_forest",
+      "mode": "correct",
+      "rows": 4281,
+      "file": "pm25_6h.joblib"
+    }
+  }
+}
