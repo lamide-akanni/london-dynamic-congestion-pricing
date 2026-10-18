@@ -163,3 +163,30 @@ PRICING_BLOCKS = {
 BASE_PRICE = 15        # what drivers paid in the data window
 BPR_ALPHA = 0.15       # standard textbook road curve settings, not calibrated to London
 BPR_EXPONENT = 4
+
+
+# ---------------------------------------------------------------------------
+# Data checks (src/ccz/validate.py)
+# ---------------------------------------------------------------------------
+# Largest share of hours a target column may be missing.
+MAX_MISSING_SHARE = 0.05
+
+# Physical limits. A value outside these is a data error, not a real reading.
+VALID_RANGES = {
+    "congestion_central": (0, 300),
+    "congestion_check": (0, 300),
+    "wm6_no2": (0, 500),
+    "wm6_pm25": (0, 500),
+    "ce2_no2": (0, 500),
+    "ce2_pm25": (0, 500),
+    "my1_no2": (0, 500),
+    "temperature_2m": (-30, 45),
+    "relative_humidity_2m": (0, 100),
+    "precipitation": (0, 200),
+    "surface_pressure": (900, 1100),
+    "wind_speed_10m": (0, 200),
+    "wind_direction_10m": (0, 360),
+    "cloud_cover": (0, 100),
+    "hour_london": (0, 23),
+    "dayofweek_london": (0, 6),
+}
