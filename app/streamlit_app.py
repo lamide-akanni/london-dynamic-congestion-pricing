@@ -158,6 +158,6 @@ PAGES = {"Overview": page_overview, "Forecasts": page_forecasts, "Pricing": page
 choice = st.sidebar.radio("Page", list(PAGES))
 st.sidebar.caption("Traffic data: TomTom Traffic Index. Air quality: London Air Quality Network. "
                    "Weather: Open-Meteo.")
-st.sidebar.caption("Independent research project by Olamide Akanni. "
-                   "Not affiliated with or endorsed by Transport for London.")
+st.sidebar.caption("[lamide-akanni](https://github.com/lamide-akanni)  \n"
+                   "Independent research project. Not affiliated with TfL.")
 PAGES[choice]()
