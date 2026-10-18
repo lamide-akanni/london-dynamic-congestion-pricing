@@ -4,6 +4,10 @@ Three pages: Overview, Forecasts, Pricing.
 Reads only saved summary tables in reports/tables. No raw data.
 Run: streamlit run app/streamlit_app.py
 """
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import altair as alt
 import pandas as pd
