@@ -190,3 +190,16 @@ VALID_RANGES = {
     "hour_london": (0, 23),
     "dayofweek_london": (0, 6),
 }
+
+
+# ---------------------------------------------------------------------------
+# Monitoring (scripts/27_monitor.py)
+# ---------------------------------------------------------------------------
+# Population Stability Index above 0.2 is a common rule of thumb for a
+# meaningful shift. It is a convention, not a law.
+PSI_LIMIT = 0.2
+PSI_BINS = 10
+# Retraining flag: model no better than the best simple rule this many weeks
+# in a row, or weekly bias above the S4 limit (percent of the average level).
+RETRAIN_WEEKS = 2
+BIAS_LIMIT_PCT = 10
