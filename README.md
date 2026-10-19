@@ -147,7 +147,7 @@ london-dynamic-congestion-pricing/
 
 - Six months of data, so seasons are not fully covered.
 - Congestion is measured for whole boroughs, not the exact charging zone.
-- Driver response to price is assumed, in three scenarios.
+- Driver response to price is assumed in three scenarios.
 - NO₂ and PM₂.₅ depend on weather and background pollution, not only traffic.
 - Traffic pushed outside the zone, and who pays, are not modelled.
 - Whether LAQN hourly times mark the start or the end of the hour is not yet confirmed. Times were not shifted.
