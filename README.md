@@ -102,39 +102,43 @@ This cleans the data, runs the data checks, trains the final models and makes a 
 The analysis steps (baselines, tuning, scoring, pricing, robustness, monitoring) are the numbered scripts in scripts/, run in order, i.e python scripts/10_final_score.py.
 
 
+Project structure
 
-Repository map
-Folder	What is in it
-app/	Streamlit dashboard
-src/ccz/	Reusable code: settings (config.py), features, baselines, models, pricing, optimiser, inference, data checks, logging
-scripts/00 to 03	Download, clean and join the data
-scripts/04 to 13	EDA, baselines, models, tuning, final score, error analysis, explanation
-scripts/14 to 24	Pricing inputs, simulation, optimiser, robustness, Pareto set, extra checks
-scripts/25 to 27	Train final models, batch forecast, monitoring
-run_all.py	One command from raw data to saved models
-models/	Trained models and their manifest
-reports/	Result tables and figures
-docs/	Problem, research questions, data dictionaries, cleaning rules, EDA findings
-tests/	Automated tests
-Data and credits
-Traffic: TomTom Traffic Index. © TomTom. Used for research; the TomTom data is not redistributed in this repository.
-Air quality: London Air Quality Network (LAQN), Environmental Research Group, Imperial College London.
-Weather: Weather data by Open-Meteo.com, licensed under CC BY 4.0. Historical weather is based on reanalysis data from the Copernicus Climate Change Service (C3S).
-Congestion Charge amounts: Transport for London.
-Limits
-Six months of data, so seasons are not fully covered.
-Congestion is measured for whole boroughs, not the exact charging zone.
-Driver response to price is assumed, in three scenarios.
-NO₂ and PM₂.₅ depend on weather and background pollution, not only traffic.
-Traffic pushed outside the zone, and who pays, are not modelled.
-Whether LAQN hourly times mark the start or the end of the hour is not yet confirmed. Times were not shifted.
-What this project does not claim
-That dynamic road pricing works in reality.
-That driver response to price was measured.
-That machine learning improved the pricing decision (S9 says it was sufficient, not shown necessary).
-That the results should be implemented.
+The project runs in five stages. Each stage has its own numbered scripts, and all shared code lives in src/ccz/
 
-This is an independent research project by lamide-akanni. It is not affiliated with or endorsed by Transport for London.
+london-dynamic-congestion-pricing/
+├── run_all.py            One command: raw data to checked table, trained models and a forecast
+├── app/
+│   └── streamlit_app.py  Live dashboard (Overview, Forecasts, Pricing)
+├── src/ccz/              Shared code used by every script
+│   ├── config.py         All settings: dates, paths, targets, prices, thresholds
+│   ├── features.py       Model inputs built only from past values (no look-ahead)
+│   ├── baselines.py      Simple rules: persistence and weekly profile
+│   ├── models.py         Ridge, random forest and XGBoost
+│   ├── pricing.py        Price to traffic, delay and pollution
+│   ├── optimiser.py      SLSQP solver and NSGA-II trade-off search
+│   ├── inference.py      Save, load and forecast with the final models
+│   ├── validate.py       Data checks that stop a run on bad data
+│   └── logs.py           Run logs written to logs/
+├── scripts/
+│   ├── 00-03             Stage 1. Data: download, clean, join into one hourly table
+│   ├── 04-13             Stage 2. Forecasting: EDA, baselines, models, tuning, final score, error analysis
+│   ├── 14-24             Stage 3. Pricing: simulation, optimiser, robustness, trade-off set
+│   ├── 25-26             Stage 4. Production: train final models, batch forecast
+│   └── 27                Stage 5. Monitoring: drift and weekly replay
+├── models/               Final trained models and manifest
+├── reports/
+│   ├── tables/           Every number reported in this README
+│   └── figures/          Charts
+├── docs/                 Problem, research questions, data dictionaries, cleaning rules
+├── tests/                Automated tests (32)
+└── data/                 Raw and processed data (not included, see Data and credits)
+
+
+
+lamide-akanni. 
+ 
+This is an independent research project. It is not affiliated with TfL.
 
 Licence
 
