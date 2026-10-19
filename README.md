@@ -12,13 +12,15 @@ The question
 London's Congestion Charge is one flat daily fee, but traffic and air quality change hour by hour. Could an hourly charge, published in advance from forecasts, reduce congestion and air pollution while keeping costs reasonable for drivers?
 
 The answer
+
 Congestion can be forecast well up to 6 hours ahead (33% to 48% fewer errors than the best simple rule). NO₂ and PM₂.₅ forecasts barely beat simple rules.
 Changing the price hour by hour helps only a little. At the same £15 average price, hourly pricing changes congestion by about -0.4%. Raising the flat charge to £18 changes it by about -20%. The price level is the strong lever; hourly timing is weak.
 A simple weekly-average forecast prices as well as the machine learning model. The forecast is sufficient for pricing, but not shown to be necessary.
 
 Driver response to price is assumed, not measured, so the pricing results are scenarios, not predictions.
 
-Show Image
+
+![Dashboard Overview](doc_/dashboard_overview.png)
 
 Results against the success criteria
 
