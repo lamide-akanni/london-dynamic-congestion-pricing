@@ -4,14 +4,13 @@
 
 A dynamic charge could help minimise congestion, reduce pollution and keep costs down for drivers, but it needs to know what the next few hours will look like. This project forecasts congestion, NO₂ and PM₂.₅ 1, 3 and 6 hours ahead using machine learning, tests the forecasts on unseen data, and uses a multi-objective optimiser to test whether those forecasts can support dynamic road pricing.
 
-Live dashboard: [london-congestion-pricing.streamlit.app](https://london-congestion-pricing.streamlit.app)
+# Live dashboard: [london-congestion-pricing.streamlit.app](https://london-congestion-pricing.streamlit.app)
 ---
-The question
-**
+## The question
+
 London's Congestion Charge is one flat daily fee, but traffic and air quality change hour by hour. Could an hourly charge, published in advance from forecasts, reduce congestion and air pollution while keeping costs reasonable for drivers?
 ---
-The answer
-**
+## The answer
 Congestion can be forecast well up to 6 hours ahead (33% to 48% fewer errors than the best simple rule). NO₂ and PM₂.₅ forecasts barely beat simple rules.
 Changing the price hour by hour helps only a little. At the same £15 average price, hourly pricing changes congestion by about -0.4%. Raising the flat charge to £18 changes it by about -20%. The price level is the strong lever; hourly timing is weak.
 A simple weekly-average forecast prices as well as the machine learning model. The forecast is sufficient for pricing, but not shown to be necessary.
