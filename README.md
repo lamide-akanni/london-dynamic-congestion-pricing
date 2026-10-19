@@ -136,7 +136,27 @@ london-dynamic-congestion-pricing/
 ```
 
 
-lamide-akanni. 
+## Data and credits
+
+- Traffic: [TomTom Traffic Index](https://www.tomtom.com/downloads/traffic-index/). © TomTom. Used for research; the TomTom data is not redistributed in this repository.
+- Air quality: [London Air Quality Network (LAQN)](https://www.londonair.org.uk), Environmental Research Group, Imperial College London.
+- Weather: [Weather data by Open-Meteo.com](https://open-meteo.com/), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Historical weather is based on reanalysis data from the Copernicus Climate Change Service (C3S).
+- Congestion Charge amounts: [Transport for London](https://tfl.gov.uk/modes/driving/congestion-charge).
+
+## Limits
+
+- Six months of data, so seasons are not fully covered.
+- Congestion is measured for whole boroughs, not the exact charging zone.
+- Driver response to price is assumed, in three scenarios.
+- NO₂ and PM₂.₅ depend on weather and background pollution, not only traffic.
+- Traffic pushed outside the zone, and who pays, are not modelled.
+- Whether LAQN hourly times mark the start or the end of the hour is not yet confirmed. Times were not shifted.
+
+## What this project does not claim
+
+- That driver response to price was measured.
+- That machine learning improved the pricing decision (S9: sufficient, not shown necessary).
+- That the results should be implemented. 
  
 This is an independent research project. It is not affiliated with TfL.
 
