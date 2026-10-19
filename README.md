@@ -4,7 +4,7 @@
 
 A dynamic charge could help minimise congestion, reduce pollution and keep costs down for drivers, but it needs to know what the next few hours will look like. This project forecasts congestion, NO₂ and PM₂.₅ 1, 3 and 6 hours ahead using machine learning, tests the forecasts on unseen data, and uses a multi-objective optimiser to test whether those forecasts can support dynamic road pricing.
 
-**Live dashboard: [london-congestion-pricing.streamlit.app](https://london-congestion-pricing.streamlit.app)**
+Live dashboard: [london-congestion-pricing.streamlit.app](https://london-congestion-pricing.streamlit.app)
 
 
 The question
@@ -61,16 +61,22 @@ Honest notes:
 
 The S5 yardstick was changed after the first optimiser runs, from a spread across five random seeds to a 95% range from resampling the 40 test days, because the final optimiser (SLSQP) has no random seed.
 TfL raised the standard charge from £15 to £18 on 2 January 2026. The data covers 2025, so £15 is the base here. The flat £18 scenario is the size of that rise, but driver response is assumed, so it is not a prediction of what happened.
+
 Method in brief
+
 Data: hourly, 1 January to 30 June 2025 (4,343 hours). Congestion for Westminster (central) and the City of London (neighbour). Air quality from roadside sites WM6 (Oxford Street, the target), CE2 and MY1. Weather for central London.
+
 Split: train to 30 April 2025, test May and June, scored once. Settings were tuned on validation months (March and April) only.
+
 Baselines: persistence (value now) and weekly profile (average for that weekday and hour). Every model must beat the better of the two.
+
 Models: ridge, random forest and XGBoost, either predicting directly or correcting the simple rule. One model per target and horizon (1, 3 and 6 hours).
 Pricing simulation: weekday prices published at 07:00 (for 07:00 to 12:00) and 13:00 (for 13:00 to 17:00), between £10 and £18, with an £18 daily cap. Driver response is a constant elasticity of -0.1, -0.3 or -0.5. Traffic turns into delay through the standard BPR road curve (alpha 0.15, exponent 4). Pollution changes only through the measured traffic share (NO₂ 0.19, PM₂.₅ 0.47 upper bound). A standard solver (SLSQP) sets the headline schedules; NSGA-II maps the trade-off set.
+
 Monitoring: drift checks (PSI and KS) and a week-by-week replay of May and June. The replay would have flagged the 6-hour pollution forecasts for retraining from the first week, and congestion at 6 hours from early June, all because of bias rather than lost accuracy.
 How to run it
 
-Tested with Python 3.13 on Windows.
+Tested with Python 3.13
 
 1. What anyone can run (no data needed)
 git clone https://github.com/lamide-akanni/london-dynamic-congestion-pricing.git
@@ -82,7 +88,6 @@ pip install -e .
 python -m pytest -q
 streamlit run app/streamlit_app.py
 
-On macOS or Linux, activate with source .venv/bin/activate. The tests and the dashboard use only the saved results, tables and models in the repo.
 
 2. The full pipeline (needs the data)
 
@@ -92,11 +97,11 @@ Traffic: download the London file from TomTom Traffic Index downloads (January t
 Air quality and weather: downloaded automatically by the first command below.
 python run_all.py --download
 
-This cleans the data, runs the data checks, trains the final models and makes a forecast, writing a log to logs/. It takes about a minute (plus the download). Later runs can skip the download: python run_all.py.
+This cleans the data, runs the data checks, trains the final models and makes a forecast, writing a log to logs/. It takes about a minute (plus the download). 
 
-The analysis steps (baselines, tuning, scoring, pricing, robustness, monitoring) are the numbered scripts in scripts/, run in order, for example python scripts/10_final_score.py.
+The analysis steps (baselines, tuning, scoring, pricing, robustness, monitoring) are the numbered scripts in scripts/, run in order, i.e python scripts/10_final_score.py.
 
-Results reproduce exactly on the author's machine. On another operating system XGBoost scores move by about 0.1 MAE; no pass or fail result changes.
+
 
 Repository map
 Folder	What is in it
