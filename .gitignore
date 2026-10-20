@@ -16,3 +16,5 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 reports/tables/latest_forecasts.csv
+reports/tables/holdout_predictions.csv
+reports/tables/pricing_inputs.csv
