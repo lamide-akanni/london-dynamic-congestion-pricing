@@ -9,7 +9,7 @@ Live dashboard: [london-congestion-pricing.streamlit.app](https://london-congest
 
 The question
 
-London's Congestion Charge is one flat daily fee, but traffic and air quality change hour by hour. Could an hourly charge, published in advance from forecasts, reduce congestion and air pollution while keeping costs reasonable for drivers?
+London’s Congestion Charge is a single flat daily fee for the central zone, but traffic and air quality change hour by hour. Could an hourly charge, published in advance from forecasts, reduce congestion and air pollution while keeping costs reasonable for drivers?
 
 The answer
 
